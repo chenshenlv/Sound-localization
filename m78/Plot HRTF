@@ -1,0 +1,19 @@
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
+Created on Thu Jul  4 01:52:31 2019
+
+@author: jason
+"""
+
+from scipy.io import loadmat,savemat
+import numpy as np
+import matplotlib.pyplot as plt
+HRTF_data = loadmat('./CIPIC_58_HRTF.mat')
+aIndex=23
+eIndex=8
+left = np.squeeze(HRTF_data['hrir_l'][aIndex, eIndex, :])  # 200*1
+right = np.squeeze(HRTF_data['hrir_r'][aIndex, eIndex, :])  # 200*1
+
+plt.plot(left)
+plt.plot(right)
